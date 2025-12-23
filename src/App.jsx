@@ -44,13 +44,13 @@ const App = () => {
 
             const data = await response.json();
 
-            if (!data.Response === "False") {
-                throw new Error(data.Error || "Failed to fetch movies");
-                setMoviesList([]);
-                return;
-            }
+            // if (!data.Response === "False") {
+            //     throw new Error(data.Error || "Failed to fetch movies");
+            //     setMoviesList([]);
+            //     return;
+            // }
 
-            setMoviesList(data.results || []);
+            setMoviesList(data?.results || []);
 
             if (query && data.results.length > 0) {
                 await updateSearchTerm(query, data.results[0]);
